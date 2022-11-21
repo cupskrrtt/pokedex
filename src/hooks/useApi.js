@@ -2,17 +2,31 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const useApi = (url) => {
-  const [data, setData] = useState();
+  const [data, setData] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    const fetchData = () => {
-      axios(url).then((res) => setData(res.data));
-    };
+    setLoading(true);
+    axios
+      .get(url)
+      .then((res) => setData(res.data))
+      .catch((err) => setError(err))
+      .finally(() => setLoading(false));
+  }, [url]);
 
-    fetchData()
-  }, []);
+  const refetch = () => {
+    useEffect(() => {
+      setLoading(true);
+      axios
+        .get(url)
+        .then((res) => setData(res.data))
+        .catch((err) => setError(err))
+        .finally(() => setLoading(false));
+    }, [url]);
+  }
 
-  return data ;
+  return {data, loading, error, refetch};
 };
 
 export default useApi;

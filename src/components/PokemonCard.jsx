@@ -1,49 +1,49 @@
 import React, { useState, useEffect } from 'react';
 import useApi from '../hooks/useApi';
-
 import { Link } from 'react-router-dom';
 
 const PokemonCard = () => {
-  const url = 'https://pokeapi.co/api/v2/pokemon'
+  const [offset, setOffset] = useState(0);
 
-  const pokemonList = useApi(url);
+  const {
+    data: pokemon,
+    loading,
+    error,
+    refetch,
+  } = useApi(`https://pokeapi.co/api/v2/pokemon?offset=${offset}&limit=20`);
 
-  const handleClickNext = (e) => {
-    e.preventDefault()
-    const next = pokemonList ? pokemonList.next : ''
-    console.log(next)
+  if (loading) return <h1>Loading..</h1>;
+  if (error) return console.log(error);
+
+  const getData = (amount) => {
+    setOffset(amount + offset)
+    refetch
+    console.log(pokemon)
   }
-
-  const handleClickPrev = (e) => {
-    e.preventDefault()
-    const prev = pokemonList ? pokemonList.prev : ''
-    console.log(prev)
-  }
-
-  
-
 
   return (
     <>
-      <div className='grid grid-cols-2 justify-items-center content-center'>
+      {/* TODO BIKIN POKEMON LISTNYA LAGI */}
+      {/* <div className="grid grid-cols-2 justify-items-center content-center">
         {pokemonList ? (
           pokemonList.results.map((item, i) => {
             return (
-                <Link to={`/detail/${item.name}`}
-                  key={i}
-                  className="flex items-center justify-center w-[8rem] h-[2.5rem] border-2">
-                  {item.name}
-                </Link>
+              <Link
+                to={`/detail/${item.name}`}
+                key={i}
+                className="flex items-center justify-center w-[8rem] h-[2.5rem] border-2">
+                {item.name}
+              </Link>
             );
           })
         ) : (
           <p>No Data</p>
         )}
+      </div> */}
+      <div className="flex items-center justify-evenly">
+        <button> PREV </button>
+        <button onClick={() => getData(20)}> NEXT </button>
       </div>
-      <div className='flex items-center justify-between p-6'>
-          <button onClick={handleClickPrev}> PREV </button>
-          <button onClick={handleClickNext}> NEXT </button>
-        </div>
     </>
   );
 };

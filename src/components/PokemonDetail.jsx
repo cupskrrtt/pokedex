@@ -6,6 +6,9 @@ const PokemonDetail = () => {
   const { pokemon } = useParams();
   const pokemonDetail = useApi(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
 
+
+// TODO BENERIN POKEMON DETAIL SAMA REFACTOR
+
   const type = pokemonDetail
     ? pokemonDetail.types.map((item) => item.type)
     : '';
