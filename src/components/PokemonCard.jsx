@@ -16,17 +16,17 @@ const PokemonCard = () => {
   if (error) return console.log(error);
 
   const getData = (amount) => {
-    setOffset(amount + offset)
-    refetch
-    console.log(pokemon)
-  }
+    setOffset(amount + offset);
+    refetch;
+    console.log(pokemon);
+  };
 
   return (
     <>
       {/* TODO BIKIN POKEMON LISTNYA LAGI */}
-      {/* <div className="grid grid-cols-2 justify-items-center content-center">
-        {pokemonList ? (
-          pokemonList.results.map((item, i) => {
+      <div className="grid grid-cols-2 justify-items-center content-center">
+        {pokemon ? (
+          pokemon.results.map((item, i) => {
             return (
               <Link
                 to={`/detail/${item.name}`}
@@ -39,7 +39,7 @@ const PokemonCard = () => {
         ) : (
           <p>No Data</p>
         )}
-      </div> */}
+      </div>
       <div className="flex items-center justify-evenly">
         <button> PREV </button>
         <button onClick={() => getData(20)}> NEXT </button>

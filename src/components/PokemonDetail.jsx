@@ -4,23 +4,17 @@ import useApi from '../hooks/useApi';
 
 const PokemonDetail = () => {
   const { pokemon } = useParams();
-  const pokemonDetail = useApi(`https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+  const {
+    data,
+    loading,
+    error,
+    refetch,
+  } = useApi(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
 
 
 // TODO BENERIN POKEMON DETAIL SAMA REFACTOR
 
-  const type = pokemonDetail
-    ? pokemonDetail.types.map((item) => item.type)
-    : '';
-
-  const base_stat = pokemonDetail
-    ? pokemonDetail.stats.map((item) => item.base_stat)
-    : '';
-  const stat_name = pokemonDetail
-    ? pokemonDetail.stats.map((item) => item.stat).map((data) => data.name)
-    : '';
-
-  console.log(pokemonDetail);
+  console.log(data);
 
   return (
     <>
