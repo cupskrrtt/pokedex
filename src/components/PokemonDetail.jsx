@@ -4,6 +4,7 @@ import useApi from '../hooks/useApi';
 
 const PokemonDetail = () => {
   const { pokemon } = useParams();
+<<<<<<< HEAD
   const {
     data,
     loading,
@@ -15,33 +16,26 @@ const PokemonDetail = () => {
 // TODO BENERIN POKEMON DETAIL SAMA REFACTOR
 
   console.log(data);
+=======
+  const { data, loading, error, refetch } = useApi(
+    `https://pokeapi.co/api/v2/pokemon/${pokemon}`
+  );
+
+  // TODO BENERIN POKEMON DETAIL SAMA REFACTOR
+>>>>>>> a544e1f (Creating the structure for pokemon detail)
 
   return (
     <>
-      <div className="flex justify-around">
-        <img
-          src={pokemonDetail ? pokemonDetail.sprites.front_default : ''}
-          alt={pokemon}
-          className="w-[10rem]"
-        />
-        <img
-          src={pokemonDetail ? pokemonDetail.sprites.back_default : ''}
-          alt={pokemon}
-          className="w-[10rem]"
-        />
-      </div>
-      <h1>{pokemonDetail ? pokemonDetail.name.toUpperCase() : ''}</h1>
-      <p>id: {pokemonDetail ? pokemonDetail.id : ''}</p>
-      <div className="flex gap-3">
-        {type
-          ? type.map((item, i) => {
-              return <h2 key={i}>{item.name}</h2>;
-            })
-          : ''}
-      </div>
-      {/* BIKIN CHARTNYA MASI BINGUNG */}
-      <h2>Height: {pokemonDetail ? pokemonDetail.height : ''}</h2>
-      <h2>Weight: {pokemonDetail ? pokemonDetail.weight : ''}</h2>
+    {/* POKEMON SPRITE */}
+      <img
+        src={data ? data.sprites.front_default : ''}
+        alt={pokemon}
+        className="w-[10rem]"
+      />
+      {/* ID AND NAME */}
+      {/* HEIGHT AND WEIGHT */}
+      {/* POKEMON TYPES */}
+      {/* CHART STATS */}
       <Link to="/"> BACK </Link>
     </>
   );
