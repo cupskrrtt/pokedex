@@ -40,13 +40,8 @@ const PokemonCard = () => {
           <p>No Data</p>
         )}
       </div>
-<<<<<<< HEAD
-      <div className="flex items-center justify-evenly">
-        <button> PREV </button>
-=======
-      <div className="flex items-center justify-between p-9">
+      <div className='flex justify-between p-8'>
         <button onClick={() => getData(-20)}> PREV </button>
->>>>>>> a544e1f (Creating the structure for pokemon detail)
         <button onClick={() => getData(20)}> NEXT </button>
       </div>
     </>
