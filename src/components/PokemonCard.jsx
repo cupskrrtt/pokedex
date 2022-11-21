@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import useApi from '../hooks/useApi';
 import { Link } from 'react-router-dom';
 
@@ -15,34 +15,42 @@ const PokemonCard = () => {
   if (loading) return <h1>Loading..</h1>;
   if (error) return console.log(error);
 
-  const getData = (amount) => {
+  const getDataNext = (amount) => {
     setOffset(amount + offset);
     refetch;
-    console.log(pokemon);
   };
+
+  const getDataPrev = (amount) => {
+    if (offset >= 20) {
+      setOffset(amount + offset);
+    }
+    refetch;
+  };
+
+  console.log(offset);
 
   return (
     <>
-      {/* TODO BIKIN POKEMON LISTNYA LAGI */}
-      <div className="grid grid-cols-2 justify-items-center content-center">
-        {pokemon ? (
-          pokemon.results.map((item, i) => {
-            return (
-              <Link
-                to={`/detail/${item.name}`}
-                key={i}
-                className="flex items-center justify-center w-[8rem] h-[2.5rem] border-2">
-                {item.name}
-              </Link>
-            );
-          })
-        ) : (
-          <p>No Data</p>
-        )}
+      {/* POKEMON LIST */}
+      <div className='grid grid-cols-2 justify-items-center'>
+        {pokemon
+          ? pokemon.results.map((item, i) => {
+              return (
+                <Link
+                  to={`/detail/${item.name}`}
+                  key={i}
+                  className='border-2 w-[10rem] text-center'>
+                  {item.name}
+                </Link>
+              );
+            })
+          : loading}
       </div>
-      <div className='flex justify-between p-8'>
-        <button onClick={() => getData(-20)}> PREV </button>
-        <button onClick={() => getData(20)}> NEXT </button>
+
+      {/* BUTTON */}
+      <div>
+        <button onClick={() => getDataPrev(-20)}> Prev </button>
+        <button onClick={() => getDataNext(20)}> Next </button>
       </div>
     </>
   );
