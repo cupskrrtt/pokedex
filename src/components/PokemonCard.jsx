@@ -19,7 +19,7 @@ const PokemonCard = () => {
       {/* POKEMON LIST */}
       <PokemonList offset={offset} />
       {/* BUTTON */}
-      <div>
+      <div className="flex justify-between p-10">
         <button onClick={() => getDataPrev(-20)}> Prev </button>
         <button onClick={() => getDataNext(20)}> Next </button>
       </div>

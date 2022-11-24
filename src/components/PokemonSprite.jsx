@@ -1,7 +1,7 @@
 import React from 'react';
 import useApi from '../hooks/useApi';
 
-const PokemonSprite = ({ pokemon }) => {
+const PokemonSprite = ({ pokemon, style }) => {
   const { data, loading } = useApi(
     `https://pokeapi.co/api/v2/pokemon/${pokemon}`
   );
@@ -12,6 +12,7 @@ const PokemonSprite = ({ pokemon }) => {
         <img
           src={data.sprites.front_default}
           alt="Pokemon Sprites"
+          className={style}
         />
       ) : (
         loading
