@@ -22,7 +22,7 @@ const PokemonList = ({ offset }) => {
                 <Link
                   to={`/detail/${item.name}`}
                   key={i}
-                  className="border-2 justify-items-center text-center">
+                  className="border-2 justify-items-center text-center rounded-lg">
                   <div className="flex items-center">
                     <PokemonSprite
                       pokemon={item.name}
