@@ -8,13 +8,16 @@ const PokemonTypes = ({ pokemon, style }) => {
 
   return (
     <>
-      {data
-        ? data.types
-            .map((item) => item.type)
-            .map((item) => {
-              return <p className={style}>{item.name}</p>;
-            })
-        : loading}
+      <div className='flex gap-4'>
+        {data
+          ? data.types
+              .map((item) => item.type)
+              .map((item) => {
+                // TODO Figure out how to make the bg color based on pokemon type
+                return <p className={`${style}`}>{item.name}</p>;
+              })
+          : loading}
+      </div>
     </>
   );
 };
