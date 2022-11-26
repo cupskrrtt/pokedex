@@ -9,7 +9,8 @@ const PokemonCard = () => {
   };
 
   const getDataPrev = (amount) => {
-    if (offset >= 20) {'border-2 w-[5rem] h-[2rem] rounded-md bg-red-500 text-white'
+    if (offset >= 20) {
+      ('border-2 w-[5rem] h-[2rem] rounded-md bg-red-500 text-white');
       setOffset(amount + offset);
     }
   };
@@ -20,8 +21,18 @@ const PokemonCard = () => {
       <PokemonList offset={offset} />
       {/* BUTTON */}
       <div className="flex justify-between p-10">
-        <button onClick={() => getDataPrev(-20)} className='border-2 w-[5rem] h-[2rem] rounded-md bg-red text-white'> Prev </button>
-        <button onClick={() => getDataNext(20)} className='border-2 w-[5rem] h-[2rem] rounded-md bg-red text-white'> Next </button>
+        <button
+          onClick={() => getDataPrev(-20)}
+          className="border-2 w-[5rem] h-[2rem] rounded-md bg-red text-white">
+          {' '}
+          Prev{' '}
+        </button>
+        <button
+          onClick={() => getDataNext(20)}
+          className="border-2 w-[5rem] h-[2rem] rounded-md bg-red text-white">
+          {' '}
+          Next{' '}
+        </button>
       </div>
     </>
   );

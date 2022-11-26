@@ -22,8 +22,8 @@ const PokemonList = ({ offset }) => {
                 <Link
                   to={`/detail/${item.name}`}
                   key={i}
-                  className="border-2 justify-items-center text-center rounded-lg">
-                  <div className="flex items-center">
+                  className="border-2 justify-items-center text-center rounded-lg bg-broken-white">
+                  <div className="flex items-center text-black">
                     <PokemonSprite
                       pokemon={item.name}
                       style="w-[5rem]"
@@ -32,7 +32,6 @@ const PokemonList = ({ offset }) => {
                       {item.name.toUpperCase()}
                       <PokemonTypes
                         pokemon={item.name}
-                        style={'flex text-xs font-medium border-[1px] border-black w-[3.4rem] h-[1.2rem] align-center justify-center rounded-md'}
                       />
                     </div>
                   </div>
