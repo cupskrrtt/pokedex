@@ -1,5 +1,6 @@
 import React from 'react';
 import useApi from '../hooks/useApi';
+import ColorConfig from '../config/ColorConfig';
 
 const PokemonTypes = ({ pokemon }) => {
   const { data, loading } = useApi(
@@ -13,10 +14,9 @@ const PokemonTypes = ({ pokemon }) => {
           ? data.types
               .map((item) => item.type)
               .map((item) => {
-                // TODO Figure out how to make the bg color based on pokemon type
                 return (
-                  <p
-                    className={`flex text-xs font-medium border-[1px] border-black w-[3.4rem] h-[1.2rem] mt-[1rem] align-center justify-center rounded-md`}>
+                  <p className={ColorConfig[`${item.name}`]}>
+                    {console.log(item.name)}
                     {item.name}
                   </p>
                 );
