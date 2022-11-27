@@ -1,7 +1,7 @@
 # pokedex
 Pokedex is my personal project for my portfolio
 
-Progress for this app : 75%
+Progress for this app : 80%
 
 There is still some things that i need to do:
 
