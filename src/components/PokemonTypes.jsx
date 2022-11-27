@@ -16,7 +16,6 @@ const PokemonTypes = ({ pokemon }) => {
               .map((item) => {
                 return (
                   <p className={ColorConfig[`${item.name}`]}>
-                    {console.log(item.name)}
                     {item.name}
                   </p>
                 );

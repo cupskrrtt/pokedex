@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
-import PokemonCard from './components/PokemonCard';
-import PokemonDetail from './components/PokemonDetail';
+import PokemonPage from './pages/PokemonPage';
+import DetailPage from './pages/DetailPage';
 
 function App() {
   return (
@@ -10,11 +10,11 @@ function App() {
       <Routes>
         <Route
           path={`/`}
-          element={<PokemonCard />}
+          element={<PokemonPage />}
         />
         <Route
           path="/detail/:pokemon"
-          element={<PokemonDetail />}
+          element={<DetailPage />}
         />
       </Routes>
     </>

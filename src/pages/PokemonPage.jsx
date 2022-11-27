@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import PokemonList from './PokemonList';
+import PokemonList from '../components/PokemonList';
 
-const PokemonCard = () => {
+const PokemonPage = () => {
   const [offset, setOffset] = useState(0);
 
   const getDataNext = (amount) => {
@@ -37,5 +37,4 @@ const PokemonCard = () => {
     </>
   );
 };
-
-export default PokemonCard;
+export default PokemonPage;
