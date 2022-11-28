@@ -10,7 +10,7 @@ const PokemonSprite = ({ pokemon, style }) => {
     <>
       {data ? (
         <img
-          src={data.sprites.front_default}
+          src={data.sprites.versions['generation-vii']['ultra-sun-ultra-moon'].front_default}
           alt="Pokemon Sprites"
           className={style}
         />
