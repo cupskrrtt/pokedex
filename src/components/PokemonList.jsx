@@ -15,7 +15,7 @@ const PokemonList = ({ offset }) => {
 
   return (
     <>
-      <div className="grid grid-cols-4 gap-5 w-[60rem] ml-[9rem] mt-[2rem]">
+      <div className="grid grid-cols-4 gap-5 w-[60rem] mt-[2rem]">
         {data
           ? data.results.map((item, i) => {
               return (

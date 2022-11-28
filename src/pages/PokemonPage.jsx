@@ -18,7 +18,9 @@ const PokemonPage = () => {
   return (
     <>
       {/* POKEMON LIST */}
-      <PokemonList offset={offset} />
+      <div className='flex justify-center'>
+        <PokemonList offset={offset} />
+      </div>
       {/* BUTTON */}
       <div className="flex justify-between p-10">
         <button
